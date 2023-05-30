@@ -1,0 +1,25 @@
+{% extends 'jfood/main.html' %}
+{% load static %}
+{% block title %} Меню {% endblock %}
+{% block content %}
+
+<div class="container">
+  <div class="row">
+    {% for type in types %}
+      <div class="col-md-4">
+        <div class="red-stripe"></div>
+         <a href="{% url 'category_menu' pk=type.pk %}">
+         <div class="card mb-4 shadow-none">
+        <img class="card-img-top" src="{{ type.type_img.url }}" alt="{{ type.type_name }}">
+        <div class="card-body text-center">
+          <p class="card-text">{{ type.type_name }}</p>
+       </div>
+      </div>
+  </a>
+</div>
+
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}
+
